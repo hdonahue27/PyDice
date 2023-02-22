@@ -15,11 +15,14 @@ def cmds():
   print("n: Change number of dice rolled")
   print("s: Change number of sides on the dice")
   print("d: Deletes all previous roles and resets the dice settings")
+  print("m: Return to main menu")
   print("q: Terminate the program")
   rollPrompt(diceNum, sideNum)    
 
 def rollPrompt(diceNum, sideNum):
   rollPromptInput = input("\nPress enter to roll, or type a command\n")
+  if rollPromptInput == "m" or rollPromptInput == "M":
+    menu()
   if rollPromptInput == "d" or rollPromptInput == "D":
     print("\n")
     start()
@@ -39,4 +42,24 @@ def rollPrompt(diceNum, sideNum):
     print(str(random.randint(0,sideNum)))
   rollPrompt(diceNum, sideNum)
 
-start()
+def info():
+  print("pyDice 1.1.0")
+  print("Created by Henry Donahue")
+  print("https://www.github.com/hdonahue27")
+  infoInput = input("Press enter to return to main menu\n")
+  menu()
+
+def menu():
+  print("Welcome to pyDice!")
+  print("S: Start pyDice")
+  print("Q: Quit pyDice")
+  print("I: View pyDice info")
+  menuInput = input("Choose an option\n")
+  if menuInput == "s" or menuInput == "S":
+    start()
+  if menuInput == "q" or "Q":
+    quit()
+  if menuInput == "i" or "I":
+    info()
+
+menu()
